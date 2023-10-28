@@ -32,6 +32,7 @@ public class MarvelApiRestService implements IMarvelApiRestService{
 			bitacora.setFechaConsulta(new Date());
 			bitacora.setUrlRequest(wrapper.getUrlRequest());
 			bitacora.setStatusCode(wrapper.getCode());
+			bitacora.setPath(Const.PATH_HEROE);
 			bitacoraRpository.save(bitacora);
 			return wrapper;
 		} else {
@@ -47,6 +48,7 @@ public class MarvelApiRestService implements IMarvelApiRestService{
 			bitacora.setFechaConsulta(new Date());
 			bitacora.setUrlRequest(wrapper.getUrlRequest());
 			bitacora.setStatusCode(wrapper.getCode());
+			bitacora.setPath(Const.PATH_HEROES);
 			bitacoraRpository.save(bitacora);
 			return wrapper;
 		} else {

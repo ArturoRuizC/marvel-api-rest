@@ -16,10 +16,10 @@ import com.aruiz.marvelapirest.interfaces.IMarvelApiRestService;
 @RestController
 @RequestMapping("/marvel")
 public class MarvelApiRestController {
-	
+
 	@Autowired
 	IMarvelApiRestService servicio;
-	
+
 	@GetMapping(value = "/heroes/{idHeroe}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public CharacterDataWrapper obtenerHeroe(final @PathVariable(value = "idHeroe") int idHeroe) {
 		return servicio.obtieneHeroe(idHeroe);
@@ -29,7 +29,7 @@ public class MarvelApiRestController {
 	public CharacterDataWrapper listarHeroes() {
 		return servicio.listaHeroes();
 	}
-	
+
 	@GetMapping(value = "/bitacora", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<BitacoraDTO> listaBitacora() {
 		return servicio.listarBitacora();
