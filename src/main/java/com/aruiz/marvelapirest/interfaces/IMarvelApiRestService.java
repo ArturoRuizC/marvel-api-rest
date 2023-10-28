@@ -1,9 +1,14 @@
 package com.aruiz.marvelapirest.interfaces;
 
+import java.util.List;
+import com.aruiz.marvelapi.model.CharacterDataWrapper;
+import com.aruiz.marvelapirest.dto.BitacoraDTO;
 
 public interface IMarvelApiRestService {
 
-	Object obtieneHeroe(int idHeroe);
+	CharacterDataWrapper obtieneHeroe(int idHeroe);
 
-	Object listaHeroes();
+	CharacterDataWrapper listaHeroes();
+	
+	List<BitacoraDTO> listarBitacora();
 }
