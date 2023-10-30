@@ -1,12 +1,12 @@
 package com.aruiz.marvelapirest.servicio;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.aruiz.marvelapi.interfaces.IMarvelAPIService;
 import com.aruiz.marvelapi.model.CharacterDataWrapper;
-import com.aruiz.marvelapi.service.MarvelAPIService;
 import com.aruiz.marvelapirest.dto.BitacoraDTO;
 import com.aruiz.marvelapirest.error.MarvelApiRestException;
 import com.aruiz.marvelapirest.interfaces.IMarvelApiRestService;
@@ -19,8 +19,8 @@ import com.aruiz.marvelapirest.utils.Const;
 public class MarvelApiRestService implements IMarvelApiRestService{
 
 	@Autowired
-	MarvelAPIService coreService;
-	
+	IMarvelAPIService coreService;
+
 	@Autowired
 	private BitacoraRpository bitacoraRpository;
 
@@ -29,7 +29,7 @@ public class MarvelApiRestService implements IMarvelApiRestService{
 		CharacterDataWrapper wrapper = coreService.consultaHeroe(idHeroe);
 		if (wrapper.getCode() == Const.CODE_200) {
 			Bitacora bitacora = new Bitacora();
-			bitacora.setFechaConsulta(new Date());
+			bitacora.setHoraConsulta(LocalTime.now());
 			bitacora.setUrlRequest(wrapper.getUrlRequest());
 			bitacora.setStatusCode(wrapper.getCode());
 			bitacora.setPath(Const.PATH_HEROE);
@@ -45,7 +45,7 @@ public class MarvelApiRestService implements IMarvelApiRestService{
 		CharacterDataWrapper wrapper = coreService.listarHeroes();
 		if (wrapper.getCode() == Const.CODE_200) {
 			Bitacora bitacora = new Bitacora();
-			bitacora.setFechaConsulta(new Date());
+			bitacora.setHoraConsulta(LocalTime.now());
 			bitacora.setUrlRequest(wrapper.getUrlRequest());
 			bitacora.setStatusCode(wrapper.getCode());
 			bitacora.setPath(Const.PATH_HEROES);

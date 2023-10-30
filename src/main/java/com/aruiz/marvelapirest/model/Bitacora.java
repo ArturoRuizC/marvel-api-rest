@@ -1,6 +1,6 @@
 package com.aruiz.marvelapirest.model;
 
-import java.util.Date;
+import java.time.LocalTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +16,7 @@ public class Bitacora {
 	private Integer id;
 	
 	private String urlRequest;
-	private Date fechaConsulta;
+	private LocalTime horaConsulta;
 	private int statusCode;
 	private String path;
 }
