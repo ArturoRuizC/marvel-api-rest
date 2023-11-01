@@ -1,4 +1,5 @@
 package com.aruiz.marvelapirest.controller;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,6 +28,7 @@ class MarvelApiRestControllerTest {
 	CharacterDataWrapper characterDataWrapper;
 
 	CharacterDataWrapper characterDataWrapper2;
+
 	@BeforeEach
 	void setUp() {
 		MockitoAnnotations.openMocks(this);
@@ -39,8 +41,7 @@ class MarvelApiRestControllerTest {
 		ltsCharacter.add(character);
 		characterContainer.setResults(ltsCharacter);
 		characterDataWrapper.setData(characterContainer);
-		
-		
+
 		characterDataWrapper2 = new CharacterDataWrapper();
 		characterDataWrapper2.setCode(Const.CODE_200);
 		characterDataWrapper2.setStatus(Const.STATUS_Ok);
